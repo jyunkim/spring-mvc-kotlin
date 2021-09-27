@@ -3,9 +3,8 @@ package com.example.mvc.controller.get
 import com.example.mvc.model.http.UserRequest
 import org.springframework.web.bind.annotation.*
 
-// REST API로 동작
-@RestController
-@RequestMapping("/api") // ~/api
+@RestController // REST API로 동작
+@RequestMapping("/api") // http://localhost:8080/api
 class GetApiController {
 
     @GetMapping("/hello")
@@ -13,7 +12,7 @@ class GetApiController {
         return "hello"
     }
 
-    // 배열에 여러 요소 사용 가능
+    // 여러 메서드, 경로 지정 가능
     @RequestMapping(method = [RequestMethod.GET], path = ["/request-mapping", "/request"])
     fun requestMapping(): String {
         return "request-mapping"
@@ -27,9 +26,9 @@ class GetApiController {
     }
 
     // 쿼리 파라미터
-    // uri에는 가독성을 위해 -을 쓰는게 좋
+    // uri에는 가독성을 위해 -을 쓰는게 좋음
     @GetMapping("/get-mapping")
-    fun queryParam(@RequestParam name: String, @RequestParam(value = "phone-number") phoneNumber: String): String {
+    fun queryParam(@RequestParam name: String, @RequestParam(name = "phone-number") phoneNumber: String): String {
         return name + phoneNumber
     }
 
@@ -40,10 +39,9 @@ class GetApiController {
         return userRequest
     }
 
-    // 객체 대신 map을 써도 됨
     // 객체의 필드 이름으로 -을 쓸 수 없기 때문에 map을 사용하여 해결
     @GetMapping("/get-mapping/map")
-    fun queryParamMap(@RequestParam map: Map<String, Any>) {
-
+    fun queryParamMap(@RequestParam map: Map<String, Any>): Map<String, Any> {
+        return map
     }
 }
