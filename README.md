@@ -89,3 +89,18 @@ GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS..
   - 500: 서버 내부 에러(서버 동작 처리 에러)
   - 503: 서비스 정지(점검)
 
+## Controller
+### @Controller
+**View를 반환하는 경우**
+1. 클라이언트가 URI 형식으로 웹 서비스에 요청을 보냄
+2. DispatcherServlet이 요청을 받고 매핑되는 Handler에 넘김
+3. Controller가 요청을 처리하고 응답을 DispatcherServlet으로 반환
+4. ViewResolver가 알맞은 view를 찾아 렌더링
+
+**Data를 반환하는 경우**   
+@ResponseBody 필요
+ViewResolver 대신에 HttpMessageConverter가 동작하여 반환해야 하는 데이터에 맞는 Converter를 사용하여 처리
+
+### @RestController
+@Controller에 @ResponseBody가 추가된 것   
+Jackson 라이브러리(Spring Web에 포함)를 통해 자동으로 자바 객체가 json으로 직렬화되거나, json 데이터가 자바 객체로 역직렬화됨
