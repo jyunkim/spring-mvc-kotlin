@@ -98,8 +98,8 @@ GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS..
 4. ViewResolver가 알맞은 view를 찾아 렌더링
 
 **Data를 반환하는 경우**   
-@ResponseBody 필요
-ViewResolver 대신에 HttpMessageConverter가 동작하여 반환해야 하는 데이터에 맞는 Converter를 사용하여 처리
+@ResponseBody 필요   
+ViewResolver 대신에 HttpMessageConverter가 동작하여 반환해야 하는 데이터 형식에 맞는 Converter를 사용하여 처리
 
 ### @RestController
 @Controller에 @ResponseBody가 추가된 것   
