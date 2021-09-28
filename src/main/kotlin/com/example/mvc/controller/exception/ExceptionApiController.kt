@@ -13,7 +13,6 @@ import javax.validation.constraints.Size
 @Validated
 class ExceptionApiController {
 
-
     @GetMapping
     fun get(
         @NotBlank
@@ -23,7 +22,7 @@ class ExceptionApiController {
         @Min(value = 10)
         @RequestParam age: Int
     ): String {
-        return name + Int
+        return "$name $age"
     }
 
     @PostMapping
