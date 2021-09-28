@@ -5,7 +5,7 @@
 - Language: Kotlin
 - Packaging: Jar
 - Java: 11
-- Dependencies: Spring Web
+- Dependencies: Spring Web, Validation
 
 ## 웹 개론
 ### REST
